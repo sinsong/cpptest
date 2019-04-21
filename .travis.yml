@@ -1,0 +1,24 @@
+dist: trusty
+language: cpp
+matrix:
+  include:
+    - os: linux
+      compiler: clang
+    - os: linux
+      compiler: gcc
+
+sudo: required
+
+addons:
+  apt:
+    packages:
+    - cmake
+
+script:
+  - pwd
+  - echo ${TRAVIS_BUILD_DIR}
+  - BUILD_SRC=(pwd)
+  - cd ~/
+  - sudo mkdir build && cd build
+  - cmake BUILD_SRC
+  - cmake --build ./
