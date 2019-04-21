@@ -18,7 +18,7 @@ script:
   - pwd
   - echo ${TRAVIS_BUILD_DIR}
   - BUILD_SRC=(pwd)
-  - cd ~/
+  - cd ../../
   - sudo mkdir build && cd build
   - cmake BUILD_SRC
   - cmake --build ./
