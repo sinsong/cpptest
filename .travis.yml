@@ -17,8 +17,7 @@ addons:
 script:
   - pwd
   - echo ${TRAVIS_BUILD_DIR}
-  - BUILD_SRC=(pwd)
   - cd ../../
   - sudo mkdir build && cd build
-  - cmake ${BUILD_SRC}
+  - cmake ${TRAVIS_BUILD_DIR}
   - cmake --build ./
