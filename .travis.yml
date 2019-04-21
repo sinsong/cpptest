@@ -20,5 +20,5 @@ script:
   - BUILD_SRC=(pwd)
   - cd ../../
   - sudo mkdir build && cd build
-  - cmake BUILD_SRC
+  - cmake ${BUILD_SRC}
   - cmake --build ./
