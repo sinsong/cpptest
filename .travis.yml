@@ -17,6 +17,6 @@ addons:
 script:
   - pwd
   - echo ${TRAVIS_BUILD_DIR}
-  - mkdir ~/build && cd ~/build
+  - mkdir ~/BuildWorkDir && cd ~/BuildWorkDir
   - cmake ${TRAVIS_BUILD_DIR}
   - cmake --build ./
