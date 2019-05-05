@@ -18,7 +18,7 @@ script:
   - pwd
   - echo ${TRAVIS_BUILD_DIR}
   - echo ${SHELL}
-  - export BUILD_DIR="~/build-work"
+  - export BUILD_DIR=`realpath ~/build-work`
   - mkdir ${BUILD_DIR} && cd ${BUILD_DIR}
   - cmake ${TRAVIS_BUILD_DIR}
   - cmake --build ./
