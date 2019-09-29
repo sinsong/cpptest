@@ -21,8 +21,7 @@ script:
   - cmake -DENABLE_COVERAGE=ON ${TRAVIS_BUILD_DIR}
   - cmake --build ./
   - sudo make install
-  - which cpt
-  - cpt
-  - llvm-profdata merge -sparse ${BUILD_DIR}/default.profraw -o default.profdata
-  - llvm-cov report $(which cpt) -instr-profile=${BUILD_DIR}/default.profraw
-  - ls -R .
+  - src/cpt
+  - llvm-profdata merge -sparse default.profraw -o default.profdata
+  - llvm-cov show src/cpt -instr-profile=default.profdata
+  - llvm-cov report src/cpt -instr-profile=default.profdata
