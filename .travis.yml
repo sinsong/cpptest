@@ -20,9 +20,9 @@ script:
   - mkdir -p ${BUILD_DIR} && cd ${BUILD_DIR}
   - cmake -DENABLE_COVERAGE=ON ${TRAVIS_BUILD_DIR}
   - cmake --build ./
-  - cmake --install ./
+  - sudo make install
   - which cpt
   - cpt
   - llvm-profdata merge -sparse ${BUILD_DIR}/default.profraw -o default.profdata
   - llvm-cov report $(which cpt) -instr-profile=${BUILD_DIR}/default.profraw
-  - tree
+  - ls -R .
