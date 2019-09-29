@@ -1,11 +1,6 @@
 dist: trusty
 language: cpp
-matrix:
-  include:
-    - os: linux
-      compiler: clang
-    - os: linux
-      compiler: gcc
+compiler: clang
 
 sudo: required
 
