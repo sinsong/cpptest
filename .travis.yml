@@ -6,7 +6,10 @@ sudo: required
 
 addons:
   apt:
+    sources:
+    - llvm-tool-chain-trusty-5.0
     packages:
+    - clang-5.0
     - cmake
 
 script:
@@ -17,3 +20,9 @@ script:
   - mkdir -p ${BUILD_DIR} && cd ${BUILD_DIR}
   - cmake -DENABLE_COVERAGE=ON ${TRAVIS_BUILD_DIR}
   - cmake --build ./
+  - cmake --install ./
+  - which cpt
+  - cpt
+  - llvm-profdata merge -sparse ${BUILD_DIR}/default.profraw -o default.profdata
+  - llvm-cov report $(which cpt) -instr-profile=${BUILD_DIR}/default.profraw
+  - tree
