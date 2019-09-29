@@ -19,6 +19,6 @@ script:
   - echo ${TRAVIS_BUILD_DIR}
   - echo ${SHELL}
   - export BUILD_DIR="${HOME}/build-work"
-  - mkdir ${BUILD_DIR} && cd ${BUILD_DIR}
-  - cmake ${TRAVIS_BUILD_DIR}
+  - mkdir -p ${BUILD_DIR} && cd ${BUILD_DIR}
+  - cmake -DENABLE_COVERAGE=ON ${TRAVIS_BUILD_DIR}
   - cmake --build ./
